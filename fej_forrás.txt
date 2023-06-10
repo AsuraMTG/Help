@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  ??????
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./sajat.css">
+     <script src="./js/bootstrap.bundle.min.js"></script>
+ <style> 
+.elso {color: darkblue;} halmozható -  ide bodyban:<div class="container elso">
+#masodik {stílus meghatározás;} halmozható -  -  ide bodyban: csak 1* <div class="container  id="masodik">
+</head>
+SZINEK BETÛK SZÖVEGEK
+CSS - <style> 
+border - margin - padding	
+div(.osztaly) {  border: 1px solid black;  margin-top: 100px; margin-right: 150px; margin-bottom: 100px;  margin-left: 80px;  padding: 25px 50px 75px 100px; }
+nagyság, háttér, szín { height: 200px; width: 50%; background-color: powderblue; color: blue;}
+szöveg
+igazítás h1 { text-align: center; left; right; justify;}
+alá/fõlé húzás h1 { text-decoration: overline; felül text-decoration: line-through; áthúzott  text-decoration: underline; aláhúzott text-decoration: overline underline; alul+felül text-decoration-color: red;}
+betû
+tipus, stílus, méret { font-family: "Times New Roman", Times, serif; font-style: italic; font-size: 40px;}
+kis/nagy elsõ nagy { text-transform: uppercase; text-transform: lowercase; text-transform: capitalize;}
+effekt h1 {text-shadow: 2px 2px red;} 
+áttetszõség  .row{background-color: rgba(200,200,200,0.6;} 
+BT
+szöveg és háttér szin: https://www.w3schools.com/bootstrap5/bootstrap_colors.php
+
+
+FORRÁS
+    <div class="row"> / <div class="col-sm-12" >  / <p><b>az oldal forrása:</b> megtekint.katt <a href="https://"><i>ide</i></a></p> / </div>

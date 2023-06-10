@@ -1,0 +1,233 @@
+
+
+Hálózatok feladatsorrend:
+1. megnyitni: * PTr-t
+                    * segédletedet
+                    * jegyzettömböt
+                    * calculator.net - ip subnet calculator -t
+		* vlsmcals.com számoláshoz
+2. PTk-ban felcimkézek mindent (ip,hálózat minden, neveket)
+3. összeollózom a jegyzettömbbe a konfigurációkat
+4. bemásolom a konfigurációkat a helyükre és beállítom az IP címeket
+5. pingelek mindent.
+
+25/128 26/192 27/224 28/240 29/248 30/252 31/254
+
+*****************************************************************
+SWITCH - Kapcsoló
+rózsa=alap narancs=# fekete=c# lila=c-line# zöld=c-if# kék=dhcp-c#
+
+en
+conf t
+host S-K
+banner motd  "Unauthorized access to this device is
+prohibited!"
+enable secret xxx
+service password-encryption
+
+line con 0 
+password xxx
+login
+
+line vty 0 15
+password xxx
+login
+
+int vlan1         
+ip add 0.0.0.0 0.0.0.0
+no shu
+ip default-gateway 0.0.0.0
+	=) c#
+
+
+
+
+ex
+ex
+	=) >
+copy ru st
+show running
+*****************************************************************
+SWITCH mentése TFTP-re     	külön egyesével csak!
+rózsa=alap narancs=# fekete=c# lila=c-line# zöld=c-if# kék=dhcp-c#
+
+cisco
+enable
+cisco
+copy running-config tftp
+0.0.0.0
+SW1_mentese
+
+*****************************************************************
+ Router  
+rózsa=alap narancs=# fekete=c# lila=c-line# zöld=c-if# kék=dhcp-c#
+
+(no  / enter)
+
+en
+conf t
+host R-dhcp
+banner motd "Unauthorized access to this device is
+prohibited!"
+service password-encryption
+enable secret xxx
+
+line con 0 
+password xxx
+login
+
+line vty 0 15
+password xxx
+login
+
+int g0/0
+ip add 0.0.10.0 0.0.0.0
+no shu
+int g0/1
+ip add 0.0.20.0 0.0.0.0
+no shu
+int g0/2
+ip add 0.0.30.0 0.0.0.0
+no shu
+
+int vlan1
+ip add 0.0.10.0 0.0.0.0        #EZ MINEK AZ IPJE?????
+no shu                                  #(ha kettõ van külön szám! szám= hálózat     
+  
+ip default-getway 0.0.0.1  ??????????????????
+
+                                 3.8-as)?????????????
+int vlan1
+ip add 0.0.20.0 0.0.0.0
+no shu
+int vlan1
+ip add 0.0.30.0 0.0.0.0
+no shu
+
+*****************************************************************
+DHCP (R,SoR,Ser)
+rózsa=alap narancs=# fekete=c# lila=c-line# zöld=c-if# kék=dhcp-c#
+
+c# is
+ip dhcp excluded-address 0.0.10.1 0.0.10.0
+ip dhcp pool lan10
+network 0.0.0.10.0 0.0.0.0
+default-router 0.0.10.1
+dns-server 8.8.8.8
+
+ip dhcp excluded-address 0.0.20.1 0.0.20.0
+ip dhcp pool lan20
+network 0.0.0.20.0 0.0.0.0
+default-router 0.0.20.1
+dns-server 8.8.8.8
+
+ip dhcp excluded-address 0.0.30.1 0.0.30.0
+ip dhcp pool lan30
+network 0.0.0.30.0 0.0.0.0
+default-router 0.0.30.1
+dns-server 8.8.8.8
+
+*****************************************************************
+soorrend: R-IP cons, Server IP SM DG DNS, kér IP   #????????????????
+
+*****************************************************************
+HTTP konfigja kelel
+
+
+
+
+
+*****************************************************************
+SSH (R, SW??) 
+kék=alap fekete=c# narancs=# lila=c-line# moha=c-if#
+			ellenõrzéskor ip cím és admin!
+
+ip domain-name xxx.com
+crypto key generate rsa
+
+How many bits in the modulus [512]: 1024
+
+ip ssh version 2
+username admin privilege 15 secret xxx
+line vty 0 4                  # eddig alapkapcsolat telnet
+privilege level 15
+login local                      #három lila telnet kizárása
+transport input ssh
+	=)c-line#
+
+*****************************************************************
+R IPV6 
+kék=alap fekete=c# narancs=# lila=c-line# moha=c-if#
+
+en
+conf t
+ipv6 unicast-routing
+int g0/0
+ipv6 enable
+ipv6 address 2023:cafe:11::1/64
+ipv6 address fe80::1 link-local
+no sh
+	exit
+ipv6 unicast-routing
+int g0/1
+ipv6 enable
+ipv6 address 2023:aaaa::1/64
+ipv6 address fe80::1 link-local
+no sh
+
+*****************************************************************SOHO v. WIFI ROUTER  pingelésnél befelé nem, de kifelé pingel!!!
+                                  
+=) GUI
+Admin fül
+	jelszó: admin/admin (átírható)
+	disable (tiltás)(enable (nem dhcps) v disable (dhcp)(bizt)(dis-nem))	SAVE
+Setup fül
+   internet setup
+	auto dhcp        vagy        static 
+       semmi teendõ			ip
+					sm
+					dg
+					dns
+   network setup
+	ip                    (ha fent dhcp, akkor marad 192.168.0.1 ugy hagyod!  
+                                            nem lehet 0 a vége! )
+	sm
+	dhcp enable -ha oszt v disable ha nem oszt ip-t
+	dhcp beáll (esetleg dhsp reservation lefoglalni címeket)
+	static dns
+	SAVE
+Wireless fül
+	basic wireless settings
+	hálózat nev SSID: rövid
+	enable (enable v disable (tiltás! bizt))           
+	SAVE
+   wireless security
+	sec.mód WPA2 Personal
+	jelszó: hosszú
+	SAVE
+   wireless MAC filter
+	enable
+	permit
+	mac cím 00:90:2B:C8:AA:59   vagy eszözön config fül / wireless
+		   00:40:0B:83:C2:74
+	SAVE
+
+WIFI LAPTOP 
+kártya csere 300!! (pc-n is!)
+  desktop wirless
+	connect, ha látom connect vagy eszözön config fül / wireless
+  
+		ha nem akkor profil
+			new enter: valami vicces next	#??????					advanced setup
+			wirless network name: network next
+			kövi next
+			wl sec WPA2-Pesonal next							wl sec jelszó hosszú next, save
+			connect 	
+
+*****************************************************************
+
+
+
+
+
+
