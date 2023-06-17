@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    a:link {color: green;  background-color: transparent;  text-decoration: none;}
+    a:visited {color: pink;  background-color: transparent; text-decoration: none;}
+    a:hover {color: red;  background-color: transparent;  text-decoration: underline;}
+    a:active {color: yellow;  background-color: transparent;  text-decoration: underline;}
+    
+    
+    </style>
+           
+
+
+
+</head>
+
+<body>
+    <!-- Coupon -->
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Congratulations!</strong>
+            <p>The coupon below.. </p>
+        </div>
+    </div>
+
+    <!-- q - " " , abbr title WHO , address , cite (paint) , bdo - vica versa -->
+    <!-- title =) https://www.w3schools.com/html/tryit.asp?filename=tryhtml_attributes_title  -->
+
+    <!-- button -->
+
+    <div class="container ">     <!-- https://www.w3schools.com/bootstrap5/bootstrap_navbar.php -->
+        <nav class="navbar navbar-expand-sm text-white bg-danger ">
+            <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="">?????????</a> this is logo -->
+                <button class=" navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                    <ul class="navbar-nav text center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="smallwill2.html#kezdolap">Vissza a kezdőlapra</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>      
+
+    <fieldset>
+        <legend> Registration form</legend>
+            <form action="" method="post">
+                <!-- text -->
+                <label for="neved">Your name:</label><br>
+                <input type="text" name="" id="neved" placeholder="Write your name here"><br>
+                <br>
+                <!--arrow -->
+                <label for="age">Enter your age:</label><br>
+                <input type="number" name="age" id="age" value=" 18" min="18" ><br><br>
+                <!--  -->
+                <input type="range" name="age 1" id="age 2" min="0" max="10" step="2"> 
+                <br>
+                <br>
+                <!-- box -->
+                <label for="text">text area:</label><br>
+                <textarea name="Megjegyzes" id="text" id="" cols="30" rows="10">
+                </textarea>
+                <br>
+                <!-- point -->
+                <label for="autod">What kind of animal do you have?</label><br><br>
+                A: <input type="radio" name="animals" value="a" id="animals1" checked><br>
+                B: <input type="radio" name="animals" value="b" id="animals2"><br>
+                C: <input type="radio" name="animals" value="c" id="animals3"><br>
+                <br>
+                <br>
+                <!-- point line -->
+                <label for="gender"></label><br>
+                Gender: <input type="radio" name="gender" value="male" id="gender1" checked>  Male   <input type="radio" name="gender" value="famale" id="gender2">  Famale
+                <br>
+                <br>
+                <!-- pipe -->
+                <label for="cars">What do you have?</label><br>
+                A: <input type="checkbox" name="cars" value="a" id="cars1"><br>
+                B: <input type="checkbox" name="cars" value="trabant" id="cars2"><br>
+                C: <input type="checkbox" name="cars" value="c" id="cars3"><br><br>
+                
+                <!-- favorit arrow -->  
+                <label for="">Your favorit?</label>
+                <select name="auto" id="auto">
+                    <option value="">A</option>
+                    <option value="">B</option>
+                    <option value="">C</option>
+                    <option value="">D</option>
+                </select>
+                <br>
+                <br>
+
+                <label for="">Email:  </label><input type="email" name="email" id="email">
+                <br> 
+                <br> 
+                 
+                <label for="">Date of Birth: </label><input type="date" name="dateofbirth" id="dateofbirth">
+                <br> 
+                <br> 
+
+                <input type="submit" value="submit"><input type="reset" value="not yet">
+                
+            </form>
+        </fieldset>
+
+
+</body>
+
+</html>
