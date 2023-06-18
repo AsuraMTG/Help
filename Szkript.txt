@@ -211,4 +211,3 @@ kártya csere 300!! (pc-n is!)
 			kövi next
 			wl sec WPA2-Pesonal next							wl sec jelszó hosszú next, save
 			connect 	
-
