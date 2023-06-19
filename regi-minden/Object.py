@@ -23,7 +23,7 @@ class Class:
             return 0
 
     def age(self):
-        return 2023-self.b
+        return 2023-self.birth 
 
 list=[]
 

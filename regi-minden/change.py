@@ -103,17 +103,17 @@ def upDown():
     print(f"whole: {e//1}")
     print(f"/: {round(e%1,2)}")
 
-def setval():
+def szetvalaszt():
     
     list = []
     n = []
     t = []
     
     for item in list:
-        part= item.split(";")
-        print(part[0], " - " ,part[1])
-        n.append(part[0])
-        t.append(part[1])
+        reszek= item.split(";")
+        print(reszek[0], " - " ,reszek[1])
+        n.append(reszek[0])
+        t.append(reszek[1])
 
 
 

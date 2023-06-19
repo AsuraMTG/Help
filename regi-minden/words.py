@@ -45,6 +45,29 @@ def password2():
 
 #----------------------------
 
+def wordsand():
+    word= input("word!")
+    word= word.lower()
+    n = the(word)
+    j = plus()
+    print(n, word, j)
+
+
+def plus():
+    plus = ["piros", "lila", "zöld","fekete", "fehér"]
+    return random.choice(plus)
+
+#paraméterlista
+def the(word):
+    mgh= "aáeéiíoóöőuúüű"
+    
+    if word[0] in mgh:
+        return "Az"
+    else:
+        return "A"  
+
+#----------------------------
+
 def f2_kedvencfilm():
 
     for _ in range(3):
